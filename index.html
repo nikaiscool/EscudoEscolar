@@ -109,18 +109,19 @@
 
         .plan-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #fff; }
         .plan-price { font-size: 28px; font-weight: 700; color: var(--accent-color); margin-bottom: 15px; }
-        .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+        .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
         
         .features-list {
             list-style: none;
             margin-bottom: 25px;
             font-size: 14px;
             color: var(--text-color);
+            flex-grow: 1;
         }
         .features-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
         }
         .features-list li::before {
@@ -182,24 +183,25 @@
                 <div class="plan-price">$55 <span style="font-size:14px; color:var(--text-muted);">/ mes</span></div>
                 <p class="plan-desc">Diseñado para proteger tu bolsillo de las multas en horas de clase.</p>
                 <ul class="features-list">
-                    <li>Cubre hasta $50 en multas de español</li>
-                    <li>Válido por 30 días naturales</li>
-                    <li>Renovación automática previa cita</li>
+                    <li>Cubre hasta $50 en multas de español.</li>
+                    <li>Válido por 30 días naturales.</li>
+                    <li>Renovación automática previa cita.</li>
                 </ul>
                 <button class="btn-contratar" onclick="imprimirContrato('Póliza Antigroserías', '$55')">Imprimir Contrato y Pagar</button>
             </div>
 
-            <!-- Línea de Crédito Novato -->
+            <!-- Línea de Crédito con Historial y Beneficios -->
             <div class="plan-card">
-                <div class="plan-title">Crédito Cooperativa (Novato)</div>
+                <div class="plan-title">Crédito Cooperativa (Nivel 1)</div>
                 <div class="plan-price">$10 <span style="font-size:14px; color:var(--text-muted);">máx. inicial</span></div>
-                <p class="plan-desc">¿Antojo en el recreo y sin efectivo? Préstamo exprés sin historial previo.</p>
+                <p class="plan-desc">Antojo en el recreo y sin efectivo. Construye tu historial desde cero con riesgo controlado.</p>
                 <ul class="features-list">
-                    <li>Hasta $10 de préstamo inicial de bajo riesgo</li>
-                    <li>Plazo de 5 días para liquidar sin intereses</li>
-                    <li>Desbloquea niveles y más varo al pagar a tiempo</li>
+                    <li><b>Límite inicial de $10:</b> Ideal para nuevos sin historial (riesgo mínimo).</li>
+                    <li><b>Escala de Préstamos:</b> Paga a tiempo y desbloquea líneas de $25, $50 y más varo.</li>
+                    <li><b>Confianza VIP:</b> Trato preferencial en el recreo y acceso a preventas de tareas/apuntes.</li>
+                    <li><b>Cero intereses si pagas en plazo:</b> Plazo de 5 días naturales para liquidar limpiamente.</li>
                 </ul>
-                <button class="btn-contratar" onclick="imprimirContrato('Línea de Crédito Inicial', '$10')">Solicitar Crédito Físico</button>
+                <button class="btn-contratar" onclick="imprimirContrato('Crédito Cooperativa (Nivel 1)', '$10')">Solicitar Crédito Físico</button>
             </div>
         </div>
     </div>
@@ -209,23 +211,27 @@
         <h2 style="text-align: center; margin-bottom: 20px;">CONTRATO DE ADHESIÓN - ESCUDOESCOLAR</h2>
         <p><b>Fecha de emisión:</b> <span id="print-date"></span></p>
         <p><b>Plan Seleccionado:</b> <span id="print-plan"></span></p>
-        <p><b>Costo / Cobertura:</b> <span id="print-price"></span></p>
+        <p><b>Monto / Cobertura Inicial:</b> <span id="print-price"></span></p>
         <hr style="margin: 20px 0;">
-        <h3>Términos y Condiciones:</h3>
-        <p>1. El cliente se compromete a pagar el monto estipulado en efectivo y en presencia del administrador para validar la cobertura o el préstamo.</p>
-        <p>2. En caso de la Póliza Antigroserías, la cobertura expira al agotar los $50 o al cumplirse el plazo mensual.</p>
-        <p>3. En caso de créditos de cooperativa, el plazo límite de pago es de 5 días naturales; de lo contrario, se aplicarán penalizaciones por retraso.</p>
+        <h3>Términos, Condiciones y Beneficios del Historial:</h3>
+        <p>1. El cliente se compromete a pagar el monto estipulado en efectivo y en presencia directa del gestor autorizado para validar la cobertura o el préstamo.</p>
+        <p>2. En caso de créditos de cooperativa, el cumplimiento puntual dentro del plazo de 5 días naturales registra un <b>Buen Historial</b> en el sistema interno, otorgando aumentos graduales de línea de crédito y prioridad de atención.</p>
+        <p>3. El incumplimiento o retraso genera penalización de historial, limitando permanentemente futuras solicitudes.</p>
         <br><br><br>
         <div style="display: flex; justify-content: space-between;">
             <div>
                 <p>___________________________________</p>
-                <p>Firma del Cliente / Asegurado</p>
+                <p>Firma del Cliente / Solicitante</p>
             </div>
             <div>
                 <p>___________________________________</p>
-                <p>Firma del Administrador (Tú)</p>
+                <p>Ejecutivo de Cuenta / EscudoEscolar</p>
             </div>
         </div>
+        <br>
+        <p style="font-size: 10px; color: #666; text-align: center; margin-top: 30px;">
+            Este documento ha sido procesado y verificado por el Departamento de Gestión de Riesgo y Operaciones de EscudoEscolar. Ningún representante legal se hace responsable por descuidos verbales o antojos repentinos en horas cátedra.
+        </p>
     </div>
 
     <script>
