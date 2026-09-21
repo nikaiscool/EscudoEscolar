@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscudoEscolar - Cobertura Escolar y Microcréditos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #0f0f11;
+            --primary-wine: #581c87;
+            --wine-hover: #7e22ce;
+            --accent-color: #f59e0b;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #1f1f23;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 22px; font-weight: 700; color: white; text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent-color); }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f0f11 100%, #1c0924 0%);
+            padding: 45px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-bottom: 3px solid var(--primary-wine);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: transform 0.3s ease;
+        }
+        .hero:hover { transform: translateY(-2px); }
+        .hero h1 { font-size: 32px; margin-bottom: 10px; color: #fff; }
+        .hero p { color: var(--text-muted); font-size: 16px; }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .plan-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-wine);
+            box-shadow: 0 12px 25px -5px rgba(88, 28, 135, 0.4);
+        }
+        .plan-card.featured {
+            border-color: var(--primary-wine);
+            background: linear-gradient(180deg, #130a1c 0%, var(--card-bg) 100%);
+        }
+        .plan-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 15px; right: -30px;
+            background: var(--accent-color);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+        }
+
+        .plan-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .plan-price { font-size: 28px; font-weight: 700; color: var(--accent-color); margin-bottom: 15px; }
+        .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .btn-contratar {
+            background-color: var(--primary-wine);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-contratar:hover { background-color: var(--wine-hover); }
+        .btn-contratar:active { transform: scale(0.98); }
+
+        /* Estilo para impresión limpia del contrato */
+        @media print {
+            body { background: white; color: black; }
+            header, .hero, .plans-grid, .btn-contratar { display: none; }
+            #printable-contract { display: block !important; }
+        }
+
+        #printable-contract {
+            display: none;
+            background: white;
+            color: black;
+            padding: 40px;
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Escudo<span>Escolar</span></a>
+        <div style="font-size: 14px; color: var(--text-muted);">Protección y microcréditos escolares</div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Tranquilidad verbal y financiera a tu alcance</h1>
+            <p>¿Te traicionan las groserías en la clase de español o necesitas un préstamo exprés? Contrata tu cobertura, evita cobros sorpresa y sube de nivel crediticio.</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Plan Básico / Seguro -->
+            <div class="plan-card featured">
+                <div class="plan-title">Póliza Antigroserías</div>
+                <div class="plan-price">$55 <span style="font-size:14px; color:var(--text-muted);">/ mes</span></div>
+                <p class="plan-desc">Diseñado para proteger tu bolsillo de las multas en horas de clase.</p>
+                <ul class="features-list">
+                    <li>Cubre hasta $50 en multas de español</li>
+                    <li>Válido por 30 días naturales</li>
+                    <li>Renovación automática previa cita</li>
+                </ul>
+                <button class="btn-contratar" onclick="imprimirContrato('Póliza Antigroserías', '$55')">Imprimir Contrato y Pagar</button>
+            </div>
+
+            <!-- Línea de Crédito Novato -->
+            <div class="plan-card">
+                <div class="plan-title">Crédito Cooperativa (Novato)</div>
+                <div class="plan-price">$10 <span style="font-size:14px; color:var(--text-muted);">máx. inicial</span></div>
+                <p class="plan-desc">¿Antojo en el recreo y sin efectivo? Préstamo exprés sin historial previo.</p>
+                <ul class="features-list">
+                    <li>Hasta $10 de préstamo inicial de bajo riesgo</li>
+                    <li>Plazo de 5 días para liquidar sin intereses</li>
+                    <li>Desbloquea niveles y más varo al pagar a tiempo</li>
+                </ul>
+                <button class="btn-contratar" onclick="imprimirContrato('Línea de Crédito Inicial', '$10')">Solicitar Crédito Físico</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contrato Oculto para Impresión Física -->
+    <div id="printable-contract">
+        <h2 style="text-align: center; margin-bottom: 20px;">CONTRATO DE ADHESIÓN - ESCUDOESCOLAR</h2>
+        <p><b>Fecha de emisión:</b> <span id="print-date"></span></p>
+        <p><b>Plan Seleccionado:</b> <span id="print-plan"></span></p>
+        <p><b>Costo / Cobertura:</b> <span id="print-price"></span></p>
+        <hr style="margin: 20px 0;">
+        <h3>Términos y Condiciones:</h3>
+        <p>1. El cliente se compromete a pagar el monto estipulado en efectivo y en presencia del administrador para validar la cobertura o el préstamo.</p>
+        <p>2. En caso de la Póliza Antigroserías, la cobertura expira al agotar los $50 o al cumplirse el plazo mensual.</p>
+        <p>3. En caso de créditos de cooperativa, el plazo límite de pago es de 5 días naturales; de lo contrario, se aplicarán penalizaciones por retraso.</p>
+        <br><br><br>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <p>___________________________________</p>
+                <p>Firma del Cliente / Asegurado</p>
+            </div>
+            <div>
+                <p>___________________________________</p>
+                <p>Firma del Administrador (Tú)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function imprimirContrato(nombrePlan, precioPlan) {
+            // Rellenar datos dinámicos en el formato de impresión
+            document.getElementById('print-plan').innerText = nombrePlan;
+            document.getElementById('print-price').innerText = precioPlan;
+            document.getElementById('print-date').innerText = new Date().toLocaleDateString();
+
+            // Lanzar la ventana de impresión nativa del navegador
+            window.print();
+        }
+    </script>
+</body>
+</html>
