@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EscudoEscolar - Cobertura Escolar y Microcréditos</title>
+    <title>EscudoEscolar | Servicios Financieros y Cobertura Institucional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #000000;
-            --card-bg: #0f0f11;
-            --primary-wine: #581c87;
-            --wine-hover: #7e22ce;
-            --accent-color: #f59e0b;
-            --text-color: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border-color: #1f1f23;
+            --card-bg: #0b0b0e;
+            --primary-wine: #4c1d95;
+            --wine-hover: #5b21b6;
+            --accent-color: #d97706;
+            --text-color: #f1f5f9;
+            --text-muted: #64748b;
+            --border-color: #1e1e24;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,54 +24,68 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 0.4s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         header {
             background-color: #000000;
             border-bottom: 1px solid var(--border-color);
-            padding: 20px 40px;
+            padding: 20px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
-        .logo { font-size: 22px; font-weight: 700; color: white; text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { color: var(--accent-color); }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .brand-logo {
+            height: 42px;
+            width: 42px;
+            object-fit: contain;
+        }
+        .brand-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .brand-text span { color: var(--accent-color); font-weight: 400; }
         
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1024px;
+            margin: 50px auto;
+            padding: 0 24px;
         }
 
         .hero {
-            background: linear-gradient(135deg, #0f0f11 100%, #1c0924 0%);
-            padding: 45px;
-            border-radius: 16px;
+            background: linear-gradient(145deg, #0b0b0e 0%, #150720 100%);
+            padding: 50px;
+            border-radius: 14px;
             margin-bottom: 40px;
             text-align: center;
             border: 1px solid var(--border-color);
-            border-bottom: 3px solid var(--primary-wine);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            transition: transform 0.3s ease;
+            border-bottom: 2px solid var(--primary-wine);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
-        .hero:hover { transform: translateY(-2px); }
-        .hero h1 { font-size: 32px; margin-bottom: 10px; color: #fff; }
-        .hero p { color: var(--text-muted); font-size: 16px; }
+        .hero h1 { font-size: 30px; margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px; color: #fff; }
+        .hero p { color: var(--text-muted); font-size: 15px; max-width: 700px; margin: 0 auto; }
 
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
             margin-bottom: 40px;
         }
 
@@ -79,53 +93,40 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 30px;
+            padding: 36px;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
             position: relative;
-            overflow: hidden;
         }
         .plan-card:hover {
-            transform: translateY(-6px);
             border-color: var(--primary-wine);
-            box-shadow: 0 12px 25px -5px rgba(88, 28, 135, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -10px rgba(76, 29, 149, 0.3);
         }
         .plan-card.featured {
             border-color: var(--primary-wine);
-            background: linear-gradient(180deg, #130a1c 0%, var(--card-bg) 100%);
-        }
-        .plan-card.featured::before {
-            content: 'POPULAR';
-            position: absolute;
-            top: 15px; right: -30px;
-            background: var(--accent-color);
-            color: #000;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 30px;
-            transform: rotate(45deg);
         }
 
-        .plan-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #fff; }
-        .plan-price { font-size: 28px; font-weight: 700; color: var(--accent-color); margin-bottom: 15px; }
-        .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+        .plan-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+        .plan-price { font-size: 26px; font-weight: 700; color: var(--accent-color); margin-bottom: 16px; }
+        .plan-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
         
         .features-list {
             list-style: none;
-            margin-bottom: 25px;
-            font-size: 14px;
-            color: var(--text-color);
+            margin-bottom: 30px;
+            font-size: 13px;
+            color: #cbd5e1;
             flex-grow: 1;
         }
         .features-list li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
         }
         .features-list li::before {
-            content: '✓';
+            content: '—';
             color: var(--accent-color);
             font-weight: bold;
         }
@@ -134,18 +135,18 @@
             background-color: var(--primary-wine);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
+            padding: 13px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.3px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s ease;
         }
         .btn-contratar:hover { background-color: var(--wine-hover); }
-        .btn-contratar:active { transform: scale(0.98); }
 
-        /* Estilo para impresión limpia del contrato */
+        /* Estilo para impresión formal del contrato */
         @media print {
             body { background: white; color: black; }
             header, .hero, .plans-grid, .btn-contratar { display: none; }
@@ -155,93 +156,111 @@
         #printable-contract {
             display: none;
             background: white;
-            color: black;
-            padding: 40px;
+            color: #111;
+            padding: 50px;
             font-family: 'Inter', sans-serif;
             max-width: 800px;
             margin: auto;
+            line-height: 1.7;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">Escudo<span>Escolar</span></a>
-        <div style="font-size: 14px; color: var(--text-muted);">Protección y microcréditos escolares</div>
+        <a href="#" class="brand-container">
+            <img src="E-removebg-preview.png" alt="EscudoEscolar Logo" class="brand-logo">
+            <div class="brand-text">Escudo<span>Escolar</span></div>
+        </a>
+        <div style="font-size: 13px; color: var(--text-muted); letter-spacing: 0.5px;">DIVISIÓN DE GESTIÓN DE RIESGO Y LIQUIDEZ</div>
     </header>
 
     <div class="container">
         <div class="hero">
-            <h1>Tranquilidad verbal y financiera a tu alcance</h1>
-            <p>¿Te traicionan las groserías en la clase de español o necesitas un préstamo exprés? Contrata tu cobertura, evita cobros sorpresa y sube de nivel crediticio.</p>
+            <h1>Soluciones Financieras y Coberturas Académicas</h1>
+            <p>Estructuras de protección patrimonial y líneas de capital de trabajo diseñadas para optimizar la eficiencia y mitigar contingencias verbales en el entorno escolar.</p>
         </div>
 
         <div class="plans-grid">
-            <!-- Plan Básico / Seguro -->
+            <!-- Póliza de Cobertura -->
             <div class="plan-card featured">
-                <div class="plan-title">Póliza Antigroserías</div>
-                <div class="plan-price">$55 <span style="font-size:14px; color:var(--text-muted);">/ mes</span></div>
-                <p class="plan-desc">Diseñado para proteger tu bolsillo de las multas en horas de clase.</p>
+                <div class="plan-title">Póliza de Cobertura Lingüística</div>
+                <div class="plan-price">$55.00 <span style="font-size:13px; color:var(--text-muted); font-weight:normal;">MXN / mes</span></div>
+                <p class="plan-desc">Instrumento financiero enfocado en absorber pasivos imprevistos derivados de sanciones disciplinarias en el área de comunicación.</p>
                 <ul class="features-list">
-                    <li>Cubre hasta $50 en multas de español.</li>
-                    <li>Válido por 30 días naturales.</li>
-                    <li>Renovación automática previa cita.</li>
+                    <li>Cobertura de pasivos hasta por $50.00 MXN en multas académicas.</li>
+                    <li>Vigencia operativa de 30 días naturales a partir de su emisión.</li>
+                    <li>Renovación sujeta a evaluación de cumplimiento previo.</li>
                 </ul>
-                <button class="btn-contratar" onclick="imprimirContrato('Póliza Antigroserías', '$55')">Imprimir Contrato y Pagar</button>
+                <button class="btn-contratar" onclick="imprimirContrato('Póliza de Cobertura Lingüística', '$55.00 MXN')">Generar Póliza para Suscripción</button>
             </div>
 
-            <!-- Línea de Crédito con Historial y Beneficios -->
+            <!-- Línea de Crédito -->
             <div class="plan-card">
-                <div class="plan-title">Crédito Cooperativa (Nivel 1)</div>
-                <div class="plan-price">$10 <span style="font-size:14px; color:var(--text-muted);">máx. inicial</span></div>
-                <p class="plan-desc">Antojo en el recreo y sin efectivo. Construye tu historial desde cero con riesgo controlado.</p>
+                <div class="plan-title">Línea de Crédito Revolvente (Nivel I)</div>
+                <div class="plan-price">$10.00 <span style="font-size:13px; color:var(--text-muted); font-weight:normal;">MXN máx. inicial</span></div>
+                <p class="plan-desc">Facilidad crediticia inicial orientada a nuevos solicitantes para construir un historial financiero sólido bajo esquema de riesgo controlado.</p>
                 <ul class="features-list">
-                    <li><b>Límite inicial de $10:</b> Ideal para nuevos sin historial (riesgo mínimo).</li>
-                    <li><b>Escala de Préstamos:</b> Paga a tiempo y desbloquea líneas de $25, $50 y más varo.</li>
-                    <li><b>Confianza VIP:</b> Trato preferencial en el recreo y acceso a preventas de tareas/apuntes.</li>
-                    <li><b>Cero intereses si pagas en plazo:</b> Plazo de 5 días naturales para liquidar limpiamente.</li>
+                    <li>Asignación inicial de capital por $10.00 MXN para mitigar riesgos de exposición.</li>
+                    <li>Plan de escalabilidad: amortizaciones puntuales otorgan acceso a líneas de mayor envergadura ($25.00, $50.00 MXN y superiores).</li>
+                    <li>Plazo de liquidación estricto de 5 días naturales sin tasa de interés ordinaria.</li>
+                    <li>Acceso preferencial a instrumentos de liquidez y servicios de tesorería internos.</li>
                 </ul>
-                <button class="btn-contratar" onclick="imprimirContrato('Crédito Cooperativa (Nivel 1)', '$10')">Solicitar Crédito Físico</button>
+                <button class="btn-contratar" onclick="imprimirContrato('Línea de Crédito Revolvente (Nivel I)', '$10.00 MXN')">Solicitar Línea de Crédito</button>
             </div>
         </div>
     </div>
 
-    <!-- Contrato Oculto para Impresión Física -->
+    <!-- Contrato Oculto para Impresión Institucional -->
     <div id="printable-contract">
-        <h2 style="text-align: center; margin-bottom: 20px;">CONTRATO DE ADHESIÓN - ESCUDOESCOLAR</h2>
-        <p><b>Fecha de emisión:</b> <span id="print-date"></span></p>
-        <p><b>Plan Seleccionado:</b> <span id="print-plan"></span></p>
-        <p><b>Monto / Cobertura Inicial:</b> <span id="print-price"></span></p>
-        <hr style="margin: 20px 0;">
-        <h3>Términos, Condiciones y Beneficios del Historial:</h3>
-        <p>1. El cliente se compromete a pagar el monto estipulado en efectivo y en presencia directa del gestor autorizado para validar la cobertura o el préstamo.</p>
-        <p>2. En caso de créditos de cooperativa, el cumplimiento puntual dentro del plazo de 5 días naturales registra un <b>Buen Historial</b> en el sistema interno, otorgando aumentos graduales de línea de crédito y prioridad de atención.</p>
-        <p>3. El incumplimiento o retraso genera penalización de historial, limitando permanentemente futuras solicitudes.</p>
-        <br><br><br>
-        <div style="display: flex; justify-content: space-between;">
-            <div>
-                <p>___________________________________</p>
-                <p>Firma del Cliente / Solicitante</p>
+        <div style="border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <img src="E-removebg-preview.png" alt="Logo" style="height: 48px; width: 48px; object-fit: contain;">
+                <div>
+                    <h2 style="font-size: 20px; font-weight: 700; letter-spacing: -0.5px; margin: 0;">ESCUDOESCOLAR</h2>
+                    <p style="font-size: 10px; color: #555; margin: 0;">DIRECCIÓN GENERAL DE OPERACIONES Y CUMPLIMIENTO</p>
+                </div>
             </div>
-            <div>
-                <p>___________________________________</p>
-                <p>Ejecutivo de Cuenta / EscudoEscolar</p>
+            <div style="text-align: right; font-size: 11px;">
+                <p><b>Fecha de Emisión:</b> <span id="print-date"></span></p>
+                <p><b>Folio de Registro:</b> #EE-<span id="print-folio"></span></p>
             </div>
         </div>
-        <br>
-        <p style="font-size: 10px; color: #666; text-align: center; margin-top: 30px;">
-            Este documento ha sido procesado y verificado por el Departamento de Gestión de Riesgo y Operaciones de EscudoEscolar. Ningún representante legal se hace responsable por descuidos verbales o antojos repentinos en horas cátedra.
-        </p>
+
+        <h3 style="font-size: 14px; margin-bottom: 15px; text-transform: uppercase; border-left: 3px solid #4c1d95; padding-left: 10px;">Contrato de Adhesión a Servicios Financieros</h3>
+        
+        <p style="font-size: 13px; margin-bottom: 8px;"><b>Producto Seleccionado:</b> <span id="print-plan"></span></p>
+        <p style="font-size: 13px; margin-bottom: 18px;"><b>Valor Nominal / Exposición Inicial:</b> <span id="print-price"></span></p>
+
+        <h4 style="font-size: 12px; margin-top: 15px; margin-bottom: 6px;">Cláusulas y Términos Generales:</h4>
+        <p style="font-size: 11.5px; margin-bottom: 6px; text-align: justify;"><b>PRIMERA. -</b> El suscriptor se compromete a liquidar el importe estipulado de manera estrictamente presencial y en efectivo ante el representante de tesorería autorizado para formalizar la vigencia del presente instrumento.</p>
+        <p style="font-size: 11.5px; margin-bottom: 6px; text-align: justify;"><b>SEGUNDA. -</b> En el caso de las líneas de crédito, el cumplimiento de pago dentro del plazo improrrogable de 5 días naturales generará un registro positivo en el historial crediticio interno, permitiendo el incremento gradual de las líneas de financiamiento disponibles.</p>
+        <p style="font-size: 11.5px; margin-bottom: 20px; text-align: justify;"><b>TERCERA. -</b> El incumplimiento de las obligaciones de pago o el retraso en las amortizaciones causará la inhabilitación inmediata del perfil, restringiendo de manera definitiva el acceso a futuros servicios de capital y cobertura.</p>
+        
+        <br><br>
+        <div style="display: flex; justify-content: space-between; font-size: 11px;">
+            <div style="text-align: center; width: 40%;">
+                <p>_________________________________________________</p>
+                <p style="margin-top: 4px;"><b>Firma del Suscriptor / Titular</b></p>
+            </div>
+            <div style="text-align: center; width: 40%;">
+                <p>_________________________________________________</p>
+                <p style="margin-top: 4px;"><b>Oficina de Enlace y Cumplimiento</b><br>EscudoEscolar</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 12px; font-size: 9.5px; color: #777; text-align: center;">
+            <p>Este documento constituye un registro oficial interno de operaciones. EscudoEscolar no asume responsabilidad civil por la inaplicación de criterios gramaticales por parte de terceros en horas cátedra.</p>
+        </div>
     </div>
 
     <script>
         function imprimirContrato(nombrePlan, precioPlan) {
-            // Rellenar datos dinámicos en el formato de impresión
             document.getElementById('print-plan').innerText = nombrePlan;
             document.getElementById('print-price').innerText = precioPlan;
             document.getElementById('print-date').innerText = new Date().toLocaleDateString();
+            document.getElementById('print-folio').innerText = Math.floor(100000 + Math.random() * 900000);
 
-            // Lanzar la ventana de impresión nativa del navegador
             window.print();
         }
     </script>
